@@ -1,5 +1,15 @@
+//VErficar la ruta de la app para cargar el SW
+const url = window.location.href;
+let swLocation = "/chatox/sw.js";
+
+
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('../sw.js');
+
+    //En modo de desarrollo:
+    if (url.includes('localhost') ) {
+        swLocation =  '../sw.js';
+    }
+    navigator.serviceWorker.register(swLocation);   
 }
 
 
